@@ -3,7 +3,6 @@
 
 ## Live Demo
 - CloudFront URL: `https://d1jos70rqafvkk.cloudfront.net`  
-*(Replace `<YOUR_CLOUDFRONT_DOMAIN>` with your actual CloudFront distribution domain)*
 
 ---
 
