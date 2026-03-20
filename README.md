@@ -20,9 +20,6 @@ It includes versioning, lifecycle policies, private S3 bucket with CloudFront ac
 
 ---
 
-
----
-
 ## AWS Commands Used
 
 ### 1. Create S3 Bucket : 
@@ -34,9 +31,7 @@ aws s3api create-bucket \
 2. Upload Website Files
 aws s3 sync ./my-static-website/ s3://sudheer-static-site-12345/ --delete
 
-3. Enable Static Website Hosting
-<img width="1920" height="1039" alt="s3-website" src="https://github.com/user-attachments/assets/a52f3820-0854-48f9-8d71-955fa86f5a81" />
-
+3. Enable Static Website Hosting 
 aws s3 website http://sudheer-devops-site-2026.s3-website-us-east-1.amazonaws.com/ \
 --index-document index.html \
 --error-document error.html 
