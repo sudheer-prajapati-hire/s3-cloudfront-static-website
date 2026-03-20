@@ -25,11 +25,11 @@ It includes versioning, lifecycle policies, private S3 bucket with CloudFront ac
 ### 1. Create S3 Bucket : 
 ```bash
 aws s3api create-bucket \
---bucket sudheer-static-site-12345 \
+--bucket sudheer-devops-site-2026 \
 --region us-east-1
 
 2. Upload Website Files
-aws s3 sync ./my-static-website/ s3://sudheer-static-site-12345/ --delete
+aws s3 sync ./my-static-website/ s3://sudheer-static-site-2026/ --delete
 
 3. Enable Static Website Hosting 
 aws s3 website http://sudheer-devops-site-2026.s3-website-us-east-1.amazonaws.com/ \
@@ -39,7 +39,7 @@ aws s3 website http://sudheer-devops-site-2026.s3-website-us-east-1.amazonaws.co
 
 4. Enable Versioning
 aws s3api put-bucket-versioning \
---bucket sudheer-static-site-12345 \
+--bucket sudheer-devops-site-2026 \
 --versioning-configuration Status=Enabled
 
 5. Set Lifecycle Policy
@@ -57,12 +57,12 @@ Create lifecycle.json:
 }
 Apply:
 aws s3api put-bucket-lifecycle-configuration \
---bucket sudheer-static-site-12345 \
+--bucket sudheer-devops-site-2026 \
 --lifecycle-configuration file://lifecycle.json 
 
 6. Block Public Access
 aws s3api put-public-access-block \
---bucket sudheer-static-site-12345 \
+--bucket sudheer-devops-site-2026 \
 --public-access-block-configuration \
 "BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true"
 
@@ -80,7 +80,7 @@ Create cf-config.json with:
     "Items": [
       {
         "Id": "S3Origin",
-        "DomainName": "sudheer-static-site-12345.s3.amazonaws.com",
+        "DomainName": "sudheer-devops-site-2026.s3.amazonaws.com",
         "S3OriginConfig": { "OriginAccessIdentity": "" },
         "OriginAccessControlId": "REPLACE_OAC_ID"
       }
